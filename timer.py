@@ -5,7 +5,7 @@ class Timer:
         self.startTime = 0
 
     def startTiming(self):
-        self.startTime = time.perf_counter()
+        self.startTime = time.clock()
 
     def getCurrentTime(self):
-        return time.perf_counter() - self.startTime
+        return time.clock() - self.startTime
