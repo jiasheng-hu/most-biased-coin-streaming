@@ -6,8 +6,8 @@ algoTimer = timer.Timer()
 outputFile = open("results.csv", "wb")
 outputFile.write("Delta, Time Used, Result\n")
 diffs, results, times = [],[],[]
-for i in range (1000):
-    coinSystem = coins.CoinSystem(1000, special=True)
+for i in range (500):
+    coinSystem = coins.CoinSystem(500, special=True)
     diffs.append(int(coinSystem.getDelta()*1000)/1000.0)
     algoTimer.startTiming()
     result = algo.gameOfCoins(coinSystem, 0.995, 1)
