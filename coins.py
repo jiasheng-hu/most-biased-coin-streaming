@@ -44,12 +44,23 @@ class Coin:
 
 
 class CoinSystem:
-    def __init__(self, num, minDelta = 0):
+    def __init__(self, num, minDelta = 0, fixDelta = False):
         biases = []
         if minDelta > 0:
-            biases.append(0.49)
+            # biases.append(0.49)
+            # for i in range(1, num):
+            #     biases.append(np.random.uniform(low = 0.0, high = 0.49-minDelta))
+
+            highestBias = 0
             for i in range(1, num):
-                biases.append(np.random.uniform(low = 0.0, high = 0.49-minDelta))
+                bias = np.random.uniform(low = 0.0, high = 0.5-minDelta)
+                biases.append(bias)
+                if bias > highestBias:
+                    highestBias = bias
+            if fixDelta:
+                biases.append(highestBias+minDelta)
+            else:
+                biases.append(np.random.uniform(low = highestBias + minDelta, high = 0.5))
             biases = np.array(biases)
             np.random.shuffle(biases)
         else:

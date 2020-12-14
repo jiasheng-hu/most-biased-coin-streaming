@@ -1,3 +1,5 @@
 *.csv
 *.pyc
 main.py
+*.png
+*.jpg
